@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Yggdrasil.Origination.ApiService/Yggdrasil.Origination.ApiService.csproj" />
+  <Project Path="Yggdrasil.Origination.Application/Yggdrasil.Origination.Application.csproj" />
+  <Project Path="Yggdrasil.Origination.Domain/Yggdrasil.Origination.Domain.csproj" />
+  <Project Path="Yggdrasil.Origination.Infrastructure/Yggdrasil.Origination.Infrastructure.csproj" />
+</Solution>

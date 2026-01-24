@@ -1,0 +1,6 @@
+@Yggdrasil.Catalog.ApiService_HostAddress = http://localhost:5273
+
+GET {{Yggdrasil.Catalog.ApiService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

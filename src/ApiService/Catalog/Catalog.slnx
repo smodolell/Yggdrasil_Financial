@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="../../Shared/Yggdrasil.Contracts/Yggdrasil.Contracts.csproj" />
+  <Project Path="Yggdrasil.Catalog.ApiService/Yggdrasil.Catalog.ApiService.csproj" />
+  <Project Path="Yggdrasil.Catalog.Application/Yggdrasil.Catalog.Application.csproj" />
+  <Project Path="Yggdrasil.Catalog.Domain/Yggdrasil.Catalog.Domain.csproj" />
+  <Project Path="Yggdrasil.Catalog.Infrastructure/Yggdrasil.Catalog.Infrastructure.csproj" />
+</Solution>

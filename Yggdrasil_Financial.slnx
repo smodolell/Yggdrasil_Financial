@@ -1,0 +1,39 @@
+<Solution>
+  <Folder Name="/Infrastructure/">
+    <Project Path="src/Infrastructure/Yggdrasil.ApiGateway/Yggdrasil.ApiGateway.csproj" />
+    <Project Path="src/Infrastructure/Yggdrasil.AuthServer/Yggdrasil.AuthServer.csproj" />
+    <Project Path="src/Infrastructure/Yggdrasil.Financial.AppHost/Yggdrasil.Financial.AppHost.csproj" />
+    <Project Path="src/Infrastructure/Yggdrasil.Financial.ServiceDefaults/Yggdrasil.Financial.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/Services/" />
+  <Folder Name="/Services/Catalog/">
+    <Project Path="src/ApiService/Catalog/Yggdrasil.Catalog.ApiService/Yggdrasil.Catalog.ApiService.csproj" />
+    <Project Path="src/ApiService/Catalog/Yggdrasil.Catalog.Application/Yggdrasil.Catalog.Application.csproj" />
+    <Project Path="src/ApiService/Catalog/Yggdrasil.Catalog.Domain/Yggdrasil.Catalog.Domain.csproj" />
+    <Project Path="src/ApiService/Catalog/Yggdrasil.Catalog.Infrastructure/Yggdrasil.Catalog.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/Services/Credit/">
+    <Project Path="src/ApiService/Credit/Yggdrasil.Credit.ApiService/Yggdrasil.Credit.ApiService.csproj" />
+    <Project Path="src/ApiService/Credit/Yggdrasil.Credit.Application/Yggdrasil.Credit.Application.csproj" />
+    <Project Path="src/ApiService/Credit/Yggdrasil.Credit.Domain/Yggdrasil.Credit.Domain.csproj" />
+    <Project Path="src/ApiService/Credit/Yggdrasil.Credit.Infrastructure/Yggdrasil.Credit.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/Services/Origination/">
+    <Project Path="src/ApiService/Origination/Yggdrasil.Origination.ApiService/Yggdrasil.Origination.ApiService.csproj" />
+    <Project Path="src/ApiService/Origination/Yggdrasil.Origination.Application/Yggdrasil.Origination.Application.csproj" />
+    <Project Path="src/ApiService/Origination/Yggdrasil.Origination.Domain/Yggdrasil.Origination.Domain.csproj" />
+    <Project Path="src/ApiService/Origination/Yggdrasil.Origination.Infrastructure/Yggdrasil.Origination.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/Services/Quotation/">
+    <Project Path="src/ApiService/Quotation/Yggdrasil.Quotation.ApiService/Yggdrasil.Quotation.ApiService.csproj" />
+    <Project Path="src/ApiService/Quotation/Yggdrasil.Quotation.Application/Yggdrasil.Quotation.Application.csproj" />
+    <Project Path="src/ApiService/Quotation/Yggdrasil.Quotation.Domain/Yggdrasil.Quotation.Domain.csproj" />
+    <Project Path="src/ApiService/Quotation/Yggdrasil.Quotation.Infrastructure/Yggdrasil.Quotation.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/Shared/">
+    <Project Path="src/Shared/Yggdrasil.Contracts/Yggdrasil.Contracts.csproj" />
+  </Folder>
+  <Folder Name="/Web/">
+    <Project Path="src/Web/Yggdrasil.Financial.Web/Yggdrasil.Financial.Web.csproj" />
+  </Folder>
+</Solution>
