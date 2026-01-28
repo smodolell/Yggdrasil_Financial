@@ -43,6 +43,7 @@ public static class DependencyInjection
         services.AddScoped<IInterestRateRepository, InterestRateRepository>();
         services.AddScoped<IPaymentTermRepository, PaymentTermRepository>();
         services.AddScoped<ITaxRateRepository, TaxRateRepository>();
+        services.AddScoped<IPlanRepository, PlanRepository>();
 
         //// 11. Servicios Inicializadores
         //services.AddHostedService<UserInitializer>();

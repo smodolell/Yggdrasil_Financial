@@ -44,11 +44,11 @@ app.MapOpenApi();
 app.MapScalarApiReference(options =>
 {
     options.WithTitle("Yggdrasil API Documentation");
-    options.WithTheme(ScalarTheme.Saturn);
+    options.WithTheme(ScalarTheme.DeepSpace);
     options.WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
     options.HideSearch = true;// Habilita/Deshabilita el buscador (Ctrl+K)
     options.ShowSidebar = true; // Muestra u oculta la barra lateral
-    options.DarkMode = true;
+    options.DarkMode = false;
 });
 app.UseRouting();
 

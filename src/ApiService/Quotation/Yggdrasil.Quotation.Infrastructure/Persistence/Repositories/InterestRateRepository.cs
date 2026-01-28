@@ -11,7 +11,7 @@ internal class InterestRateRepository : Repository<InterestRate, int>, IInterest
     }
     public async Task<bool> IsRateUsedInPlansAsync(int interestRateId, CancellationToken cancellationToken = default)
     {
-        return await _context.PlanPaymentTerms
+        return await _dbContext.PlanPaymentTerms
             .AnyAsync(p => p.InterestRateId == interestRateId, cancellationToken);
     }
 

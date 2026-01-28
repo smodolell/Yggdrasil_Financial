@@ -12,14 +12,14 @@ public abstract class Repository<TEntity, TKey> : IRepository<TEntity, TKey>
     where TEntity : class, IEntity<TKey>
     where TKey : IEquatable<TKey>
 {
-    protected readonly ApplicationDbContext _context;
+    protected readonly ApplicationDbContext _dbContext;
     protected readonly DbSet<TEntity> _dbSet;
     private readonly bool _isAuditable;
 
-    public Repository(ApplicationDbContext context)
+    public Repository(ApplicationDbContext dbContext)
     {
-        _context = context ?? throw new ArgumentNullException(nameof(context));
-        _dbSet = context.Set<TEntity>();
+        _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        _dbSet = dbContext.Set<TEntity>();
         _isAuditable = typeof(IAuditable).IsAssignableFrom(typeof(TEntity));
     }
 
@@ -84,7 +84,7 @@ public abstract class Repository<TEntity, TKey> : IRepository<TEntity, TKey>
         }
 
         _dbSet.Attach(entity);
-        _context.Entry(entity).State = EntityState.Modified;
+        _dbContext.Entry(entity).State = EntityState.Modified;
 
         await Task.CompletedTask;
     }

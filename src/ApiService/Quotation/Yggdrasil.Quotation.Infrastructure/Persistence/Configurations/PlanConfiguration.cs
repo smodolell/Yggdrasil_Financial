@@ -62,7 +62,7 @@ public class PlanConfiguration : IEntityTypeConfiguration<Plan>
             .HasDatabaseName("IX_Plans_AgeRange");
 
         // Relación con PlanPaymentTerms
-        builder.HasMany(x => x.PlanTerms)
+        builder.HasMany(x => x.PlanPaymentTerms)
             .WithOne(p => p.QuotationPlan)
             .HasForeignKey(p => p.PlanId)
             .OnDelete(DeleteBehavior.Cascade);

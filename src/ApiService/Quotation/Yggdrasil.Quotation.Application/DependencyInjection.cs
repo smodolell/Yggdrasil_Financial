@@ -4,7 +4,6 @@ using LiteBus.Events;
 using LiteBus.Extensions.Microsoft.DependencyInjection;
 using LiteBus.Queries;
 using Microsoft.Extensions.DependencyInjection;
-using Yggdrasil.Quotation.Application.Common.Behaviours;
 
 namespace Yggdrasil.Quotation.Application;
 

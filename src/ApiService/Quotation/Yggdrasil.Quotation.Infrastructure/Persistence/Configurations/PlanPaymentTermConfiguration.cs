@@ -51,7 +51,7 @@ public class PlanPaymentTermConfiguration : IEntityTypeConfiguration<PlanPayment
 
         // Relaciones
         builder.HasOne(x => x.QuotationPlan)
-            .WithMany(p => p.PlanTerms)
+            .WithMany(p => p.PlanPaymentTerms)
             .HasForeignKey(x => x.PlanId)
             .OnDelete(DeleteBehavior.Cascade);
 
