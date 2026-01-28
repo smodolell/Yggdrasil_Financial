@@ -1,27 +1,66 @@
+﻿using Microsoft.AspNetCore.OpenApi;
+using Scalar.AspNetCore;
+using Yggdrasil.Quotation.ApiService;
+using Yggdrasil.Quotation.ApiService.Infrastructure;
+using Yggdrasil.Quotation.Application;
+using Yggdrasil.Quotation.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
+var configuration = builder.Configuration;
+
+#if (UseAspire)
 builder.AddServiceDefaults();
-
+#endif
 // Add services to the container.
-
+builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices(configuration);
+builder.AddWebServices();
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+
 
 var app = builder.Build();
-
-app.MapDefaultEndpoints();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+}
+else
+{
+    app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+#if (!UseAspire)
+    app.UseHealthChecks("/health");
+#endif
+app.UseExceptionHandler(options => { });
 
-app.UseAuthorization();
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+
+app.MapOpenApi();
+
+app.MapScalarApiReference(options =>
+{
+    options.WithTitle("Yggdrasil API Documentation");
+    options.WithTheme(ScalarTheme.Saturn);
+    options.WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
+    options.HideSearch = true;// Habilita/Deshabilita el buscador (Ctrl+K)
+    options.ShowSidebar = true; // Muestra u oculta la barra lateral
+    options.DarkMode = true;
+});
+app.UseRouting();
+
+app.Map("/", () => Results.Redirect("/scalar"));
+
+#if (UseAspire)
+app.MapDefaultEndpoints();
+#endif
+
+app.MapEndpoints();
 
 app.MapControllers();
+
 
 app.Run();

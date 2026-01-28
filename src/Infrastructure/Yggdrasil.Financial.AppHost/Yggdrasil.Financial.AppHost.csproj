@@ -8,6 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <UserSecretsId>a06881ef-530e-46e6-a32b-6b86a9e8a651</UserSecretsId>
+	<DefineConstants>$(DefineConstants);UseAspire</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>

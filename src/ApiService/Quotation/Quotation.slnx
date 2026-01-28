@@ -1,6 +1,9 @@
 <Solution>
-  <Project Path="../Origination/Yggdrasil.Origination.ApiService/Yggdrasil.Origination.ApiService.csproj" />
-  <Project Path="../Origination/Yggdrasil.Origination.Application/Yggdrasil.Origination.Application.csproj" />
-  <Project Path="../Origination/Yggdrasil.Origination.Domain/Yggdrasil.Origination.Domain.csproj" />
-  <Project Path="../Origination/Yggdrasil.Origination.Infrastructure/Yggdrasil.Origination.Infrastructure.csproj" />
+  <Folder Name="/Elementos de la solución/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Yggdrasil.Quotation.ApiService/Yggdrasil.Quotation.ApiService.csproj" />
+  <Project Path="Yggdrasil.Quotation.Application/Yggdrasil.Quotation.Application.csproj" />
+  <Project Path="Yggdrasil.Quotation.Domain/Yggdrasil.Quotation.Domain.csproj" />
+  <Project Path="Yggdrasil.Quotation.Infrastructure/Yggdrasil.Quotation.Infrastructure.csproj" />
 </Solution>
