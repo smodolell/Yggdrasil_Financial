@@ -1,0 +1,31 @@
+﻿@using System.Net.Http
+@using System.Net.Http.Json
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using static Microsoft.AspNetCore.Components.Web.RenderMode
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.AspNetCore.OutputCaching
+@using Microsoft.JSInterop
+@using Microsoft.Extensions.Localization
+@using Yggdrasil.Site
+@using Yggdrasil.Site.Attributes
+@using Yggdrasil.Site.Constants
+@using Yggdrasil.Site.Components
+@using Yggdrasil.Site.States
+@using Yggdrasil.Site.Resources
+
+
+@using MudBlazor
+@using MudBlazor.Services
+
+@inject IJSRuntime _jsRuntime;
+@inject IDialogService _dialogService;
+@inject ISnackbar _snackbarService;
+@inject LayoutState _layoutState;
+@inject ThemeState _themeState;
+@inject NavigationManager _navManager;
+@inject IStringLocalizer<Resource> _loc;

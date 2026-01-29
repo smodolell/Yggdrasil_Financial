@@ -1,0 +1,36 @@
+﻿@using Yggdrasil.Site.Components.Layout.Themes
+@inherits LayoutComponentBase
+
+<ProvidersAggregate></ProvidersAggregate>
+
+<PageTitle>modo</PageTitle>
+
+<LoggerErrorBoundary>
+    <ChildContent>
+        <MudLayout>
+            <AuthorizeView Context="authContext">
+                <Authorized>
+                    <AuthorizedLayout>
+                        <Child>
+                            @Body
+                        </Child>
+                    </AuthorizedLayout>
+                </Authorized>
+                <NotAuthorized>
+                    <EmptyLayout>
+                        @Body
+                    </EmptyLayout>
+                </NotAuthorized>
+            </AuthorizeView>
+        </MudLayout>
+    </ChildContent>
+    <ErrorContent>
+        <div style="background: red">@context</div>
+    </ErrorContent>
+</LoggerErrorBoundary>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>

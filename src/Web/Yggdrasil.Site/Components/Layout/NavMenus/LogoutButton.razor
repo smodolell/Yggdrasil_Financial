@@ -1,0 +1,11 @@
+﻿@rendermode RenderMode.InteractiveServer
+@inject NavigationManager Navigation
+
+
+<MudNavLink  OnClick="Logout" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.ExitToApp">Cerrar Sesión</MudNavLink>
+@code {
+    private void Logout()
+    {
+        Navigation.NavigateTo("/Account/Logout", forceLoad: true);
+    }
+}

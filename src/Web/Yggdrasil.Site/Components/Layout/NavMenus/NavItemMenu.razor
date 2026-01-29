@@ -1,0 +1,25 @@
+﻿@rendermode RenderMode.InteractiveServer
+
+@foreach (var m in NavMenuItems)
+{
+    if (m.Childs.Count == 0)
+    {
+        <MudNavLink Href="@($".{m.Route}")" 
+                    Icon="@m.MenuIcon" 
+                    Match="NavLinkMatch.All" 
+                    IconColor="Color.Inherit"
+                    @onmouseup="()=>NavClick(m)">
+                    @m.MenuName
+        </MudNavLink>
+    }
+    else
+    {
+        <MudNavGroup Title="@m.MenuName"
+                     Expanded="@m.Childs.Any(c=>_navManager.Uri.EndsWith(c.Route ?? ""))"
+                     Icon="@m.MenuIcon" IconColor="Color.Inherit">
+
+            <NavItemMenu NavMenuItems="@m.Childs" NavTo="NavTo" />
+
+        </MudNavGroup>
+    }
+}

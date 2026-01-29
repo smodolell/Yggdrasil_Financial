@@ -1,0 +1,17 @@
+﻿@rendermode RenderMode.InteractiveServer
+
+<MudIconButton Icon="@(_layoutState.NavIsOpen ? IconsConstants.MenuCollapsed : IconsConstants.MenuExpand)"
+               Color="Color.Inherit" 
+               Edge="Edge.Start" 
+               OnClick="@((e) => DrawerToggle())" />
+@code {
+
+    async Task DrawerToggle()
+    {
+        _layoutState.NavIsOpen = !_layoutState.NavIsOpen;
+
+        var drawerModule = await _jsRuntime.InvokeAsync<IJSObjectReference>
+            ("import", "./js/drawer.js");
+        await drawerModule.InvokeVoidAsync("handleDrawerToggled", _layoutState.NavIsOpen);
+    }
+}

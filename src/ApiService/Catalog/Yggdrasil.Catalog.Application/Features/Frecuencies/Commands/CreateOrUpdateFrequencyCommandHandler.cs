@@ -7,20 +7,20 @@ internal class CreateOrUpdateFrequencyCommandHandler : ICommandHandler<CreateOrU
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IFrequencyRepository _frequencyRepository;
-    private readonly IEventPublisher _eventPublisher;
+    //private readonly IEventPublisher _eventPublisher;
     private readonly IValidator<CreateOrUpdateFrequencyCommand> _validator;
     private readonly ILogger<CreateOrUpdateFrequencyCommandHandler> _logger;
 
     public CreateOrUpdateFrequencyCommandHandler(
         IUnitOfWork unitOfWork,
         IFrequencyRepository frequencyRepository,
-        IEventPublisher eventPublisher,
+        //IEventPublisher eventPublisher,
         IValidator<CreateOrUpdateFrequencyCommand> validator,
         ILogger<CreateOrUpdateFrequencyCommandHandler> logger)
     {
         _unitOfWork = unitOfWork;
         _frequencyRepository = frequencyRepository;
-        _eventPublisher = eventPublisher;
+        //_eventPublisher = eventPublisher;
         _validator = validator;
         _logger = logger;
     }
@@ -81,16 +81,16 @@ internal class CreateOrUpdateFrequencyCommandHandler : ICommandHandler<CreateOrU
                 await _frequencyRepository.AddAsync(frequency, cancellationToken);
 
 
-                await _eventPublisher.PublishAsync(new FrequencyCreatedEvent
-                {
-                    FrequencyId = frequency.Id,
-                    Name = frequency.Name,
-                    Code = frequency.Code,
-                    Description = frequency.Description,
-                    DaysInterval = frequency.DaysInterval,
-                    PeriodsPerYear = frequency.PeriodsPerYear,
-                    IsActive = frequency.IsActive
-                });
+                //await _eventPublisher.PublishAsync(new FrequencyCreatedEvent
+                //{
+                //    FrequencyId = frequency.Id,
+                //    Name = frequency.Name,
+                //    Code = frequency.Code,
+                //    Description = frequency.Description,
+                //    DaysInterval = frequency.DaysInterval,
+                //    PeriodsPerYear = frequency.PeriodsPerYear,
+                //    IsActive = frequency.IsActive
+                //});
 
 
                 _logger.LogInformation("Frecuencia creada exitosamente con ID: {FrequencyId}, Código: {FrequencyCode}",
@@ -116,12 +116,12 @@ internal class CreateOrUpdateFrequencyCommandHandler : ICommandHandler<CreateOrU
 
                 await _frequencyRepository.UpdateAsync(frequency, cancellationToken);
 
-                await _eventPublisher.PublishAsync(new FrequencyUpdatedEvent
-                {
-                    FrequencyId = frequency.Id,
-                    NewName = frequency.Name,
-                    Code = frequency.Code,
-                });
+                //await _eventPublisher.PublishAsync(new FrequencyUpdatedEvent
+                //{
+                //    FrequencyId = frequency.Id,
+                //    NewName = frequency.Name,
+                //    Code = frequency.Code,
+                //});
 
                 _logger.LogInformation("Frecuencia actualizada exitosamente con ID: {FrequencyId}, Código: {FrequencyCode}",
                     frequency.Id, frequency.Code);

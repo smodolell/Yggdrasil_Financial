@@ -1,0 +1,26 @@
+﻿@using Yggdrasil.Site.Components.Layout.Culture
+@using Yggdrasil.Site.Components.Layout.NavMenus
+@using Yggdrasil.Site.Components.Layout.Themes
+@*@using Yggdrasil.Layout.Components.UserAvatar*@
+<MudAppBar Elevation="0" Dense="true" Color="Color.Inherit">
+    <NavOpenButton />
+    <MudSpacer />
+
+    <div class="d-none d-md-flex">
+        <CultureIcon />
+        <PrimaryChangeButton />
+    </div>
+
+    @*<UserMenuAvatar />*@
+</MudAppBar>
+
+<NavMenu></NavMenu>
+
+<MudMainContent Style="height:100vh;">
+    <div class="pa-4 d-flex flex-column" style="height:100%;overflow:auto;">
+        <MudPaper Class="flex-1 pa-4 border-t border-solid mud-border-lines-default" Style="overflow:auto;">
+            @Child
+        </MudPaper>
+    </div>
+</MudMainContent>
+

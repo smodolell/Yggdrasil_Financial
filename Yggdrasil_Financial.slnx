@@ -34,6 +34,6 @@
     <Project Path="src/Shared/Yggdrasil.Contracts/Yggdrasil.Contracts.csproj" />
   </Folder>
   <Folder Name="/Web/">
-    <Project Path="src/Web/Yggdrasil.Financial.Web/Yggdrasil.Financial.Web.csproj" />
+    <Project Path="src/Web/Yggdrasil.Site/Yggdrasil.Site.csproj" />
   </Folder>
 </Solution>

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Sdk Name="Aspire.AppHost.Sdk" Version="9.5.1" />
 
@@ -20,7 +20,7 @@
     <ProjectReference Include="..\..\ApiService\Credit\Yggdrasil.Credit.ApiService\Yggdrasil.Credit.ApiService.csproj" />
     <ProjectReference Include="..\..\ApiService\Origination\Yggdrasil.Origination.ApiService\Yggdrasil.Origination.ApiService.csproj" />
     <ProjectReference Include="..\..\ApiService\Quotation\Yggdrasil.Quotation.ApiService\Yggdrasil.Quotation.ApiService.csproj" />
-    <ProjectReference Include="..\..\Web\Yggdrasil.Financial.Web\Yggdrasil.Financial.Web.csproj" />
+    <ProjectReference Include="..\..\Web\Yggdrasil.Site\Yggdrasil.Site.csproj" />
     <ProjectReference Include="..\Yggdrasil.ApiGateway\Yggdrasil.ApiGateway.csproj" />
     <ProjectReference Include="..\Yggdrasil.AuthServer\Yggdrasil.AuthServer.csproj" />
   </ItemGroup>

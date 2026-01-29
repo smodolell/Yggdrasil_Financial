@@ -7,6 +7,7 @@ using Yggdrasil.Quotation.Application.Features.Settings.Commands.CreatePlan;
 using Yggdrasil.Quotation.Application.Features.Settings.Commands.UpdatePlan;
 using Yggdrasil.Quotation.Application.Features.Settings.DTOs;
 using Yggdrasil.Quotation.Application.Features.Settings.Queries;
+using Yggdrasil.Quotation.Application.Features.Settings.Queries.GetPlanById;
 
 namespace Yggdrasil.Quotation.ApiService.Endpoints;
 

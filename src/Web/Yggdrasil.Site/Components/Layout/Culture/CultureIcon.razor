@@ -1,0 +1,52 @@
+﻿@rendermode RenderMode.InteractiveServer
+
+@if (IsText)
+{
+    <MudMenu Color="Color.Inherit" Dense="true"
+             AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopRight">
+        <ActivatorContent>
+            <MudIcon Icon="@Icons.Material.Filled.Language" Size="Size.Small" Color="Color.Inherit" />
+            <MudText Typo="Typo.caption" Color="Color.Surface">@_loc["CultureLanguage"]</MudText>
+        </ActivatorContent>
+        <ChildContent>
+            <MudMenuItem OnClick="@(()=>CultureChanged("es-AR"))">
+                @_loc["AuthorizedLayout_Language_es"]
+            </MudMenuItem>
+            <MudMenuItem OnClick="@(()=>CultureChanged("en"))">
+                @_loc["AuthorizedLayout_Language_en"]
+            </MudMenuItem>
+        </ChildContent>
+    </MudMenu>
+}
+else
+{
+    <MudMenu Icon="@Icons.Material.Filled.Language" Color="Color.Inherit" Dense="true" Style="margin-right:12px;"
+             AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopRight">
+        <MudMenuItem OnClick="@(()=>CultureChanged("es-AR"))">
+            @_loc["AuthorizedLayout_Language_es"]
+        </MudMenuItem>
+        <MudMenuItem OnClick="@(()=>CultureChanged("en"))">
+            @_loc["AuthorizedLayout_Language_en"]
+        </MudMenuItem>
+    </MudMenu>
+}
+
+@code {
+    [Parameter] public bool IsText { get; set; } = false;
+
+    private void CultureChanged(string culture)
+    {
+        if (!string.IsNullOrEmpty(culture))
+        {
+            var uri = new Uri(_navManager.Uri)
+                    .GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+            var cultureEscaped = Uri.EscapeDataString(culture);
+            //var uriEscaped = Uri.EscapeDataString(uri);
+
+            _navManager.NavigateTo(
+                $"api/Culture/Set?culture={cultureEscaped}&redirectUri={uri}",
+                forceLoad: true);
+        }
+    }
+
+}

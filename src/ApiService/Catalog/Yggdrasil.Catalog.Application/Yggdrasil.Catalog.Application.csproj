@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Shared\Yggdrasil.Contracts\Yggdrasil.Contracts.csproj" />
+    <ProjectReference Include="..\Yggdrasil.Catalog.Domain\Yggdrasil.Catalog.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
