@@ -1,5 +1,5 @@
 ﻿namespace Yggdrasil.Catalog.Application.Specifications;
-public class FrequencySpec : Specification<Frequency>
+public class FrequencySpec : Specification<PaymentFrequency>
 {
 
     public FrequencySpec(string? searchText, bool? isActive)

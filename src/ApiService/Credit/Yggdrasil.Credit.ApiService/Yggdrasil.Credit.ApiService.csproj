@@ -8,12 +8,23 @@
 
   <ItemGroup>
     <PackageReference Include="Ardalis.GuardClauses" Version="5.0.0" />
+    <PackageReference Include="Ardalis.Result.AspNetCore" Version="10.1.0" />
+    <PackageReference Include="Aspire.RabbitMQ.Client" Version="13.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="10.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2" />
     <PackageReference Include="Scalar.AspNetCore" Version="2.12.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="10.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Infrastructure\Yggdrasil.Financial.ServiceDefaults\Yggdrasil.Financial.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\Yggdrasil.Credit.Application\Yggdrasil.Credit.Application.csproj" />
+    <ProjectReference Include="..\Yggdrasil.Credit.Infrastructure\Yggdrasil.Credit.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

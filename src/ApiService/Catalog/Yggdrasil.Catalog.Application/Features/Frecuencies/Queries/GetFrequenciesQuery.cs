@@ -6,13 +6,13 @@ public class GetFrequenciesQuery : IQuery<PagedResult<List<FrequencyListItemDto>
 {
     private static readonly HashSet<string> _validSortColumns = new()
     {
-        nameof(Frequency.Code),
-        nameof(Frequency.Name),
+        nameof(PaymentFrequency.Code),
+        nameof(PaymentFrequency.Name),
     };
 
     private int _page = 1;
     private int _pageSize = 10;
-    private string _sortColumn = nameof(Frequency.Code);
+    private string _sortColumn = nameof(PaymentFrequency.Code);
 
     public int Page
     {
@@ -34,7 +34,7 @@ public class GetFrequenciesQuery : IQuery<PagedResult<List<FrequencyListItemDto>
     public string SortColumn
     {
         get => _sortColumn;
-        set => _sortColumn = _validSortColumns.Contains(value) ? value : nameof(Frequency.Code);
+        set => _sortColumn = _validSortColumns.Contains(value) ? value : nameof(PaymentFrequency.Code);
     }
 
     public bool SortDescending { get; set; }

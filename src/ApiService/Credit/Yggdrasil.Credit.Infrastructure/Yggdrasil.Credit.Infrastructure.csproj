@@ -5,5 +5,22 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" Version="9.3.1" />
+    <PackageReference Include="LiteBus.Extensions.Microsoft.DependencyInjection" Version="4.2.0" />
+    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Yggdrasil.Credit.Application\Yggdrasil.Credit.Application.csproj" />
+    <ProjectReference Include="..\Yggdrasil.Credit.Domain\Yggdrasil.Credit.Domain.csproj" />
+  </ItemGroup>
 
 </Project>

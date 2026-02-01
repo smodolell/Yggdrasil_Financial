@@ -1,4 +1,6 @@
 ﻿using Mapster;
+using MassTransit;
+using MassTransit.RabbitMqTransport;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
@@ -33,6 +35,26 @@ public static class DependencyInjection
         {
             options.UseSqlite(connectionString);
         }, ServiceLifetime.Scoped);
+
+
+        services.AddMassTransit(x =>
+        {
+            // Registrar consumidores
+            //x.AddConsumer<MyMessageConsumer>();
+
+            // Configurar el bus con RabbitMQ
+            x.UsingRabbitMq((context, cfg) =>
+            {
+                // Aspire inyecta automáticamente la conexión vía configuración
+                cfg.Host(configuration.GetConnectionString("messaging"));
+
+                // Configurar endpoint de consumo
+                cfg.ReceiveEndpoint("my-queue", e =>
+                {
+                    //e.ConfigureConsumer<MyMessageConsumer>(context);
+                });
+            });
+        });
 
 
         //Repositorios

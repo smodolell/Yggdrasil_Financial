@@ -7,4 +7,6 @@ global using LiteBus.Queries.Abstractions;
 global using Microsoft.Extensions.Logging;
 
 global using Yggdrasil.Catalog.Application.Common.Interfaces;
+global using Yggdrasil.Catalog.Application.Interfaces;
+global using Yggdrasil.Catalog.Application.Specifications;
 global using Yggdrasil.Catalog.Domain.Entities;

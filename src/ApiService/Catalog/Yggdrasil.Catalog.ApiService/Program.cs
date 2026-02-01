@@ -1,59 +1,68 @@
-﻿using Microsoft.OpenApi;
+﻿using Microsoft.AspNetCore.OpenApi;
+using Scalar.AspNetCore;
+using Yggdrasil.Catalog.ApiService.Infrastructure;
+using Yggdrasil.Catalog.ApiService;
 using Yggdrasil.Catalog.Application;
 using Yggdrasil.Catalog.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
+var configuration = builder.Configuration;
+builder.AddRabbitMQClient("messaging");
+
+#if (UseAspire)
 builder.AddServiceDefaults();
-
+#endif
 // Add services to the container.
-builder.Services.AddApplicationServices()
-    .AddInfrastructureServices(builder.Configuration);
-
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "Mi API",
-        Version = "v1",
-        Description = "Descripci�n de mi API",
-        Contact = new OpenApiContact
-        {
-            Name = "Tu Nombre",
-            Email = "tu@email.com"
-        }
-    });
-
-    // Para usar comentarios XML
-    var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-
-    if (File.Exists(xmlPath))
-    {
-        options.IncludeXmlComments(xmlPath);
-    }
-});
+builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices(configuration);
+builder.AddWebServices();
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+
 
 var app = builder.Build();
-
-app.MapDefaultEndpoints();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
 }
-app.UseSwagger();
-app.UseSwaggerUI(c =>
+else
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Mi API v1");
-});
-app.UseHttpsRedirection();
+    app.UseHsts();
+}
 
-app.UseAuthorization();
+#if (!UseAspire)
+app.UseHealthChecks("/health");
+#endif
+app.UseExceptionHandler(options => { });
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+
+app.MapOpenApi();
+
+app.MapScalarApiReference(options =>
+{
+    options.WithTitle("Yggdrasil API Documentation");
+    options.WithTheme(ScalarTheme.DeepSpace);
+    options.WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
+    options.HideSearch = true;// Habilita/Deshabilita el buscador (Ctrl+K)
+    options.ShowSidebar = true; // Muestra u oculta la barra lateral
+    options.DarkMode = false;
+});
+app.UseRouting();
+
+app.Map("/", () => Results.Redirect("/scalar"));
+
+#if (UseAspire)
+app.MapDefaultEndpoints();
+
+#endif
+
+app.MapEndpoints();
 
 app.MapControllers();
+
 
 app.Run();

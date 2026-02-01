@@ -24,7 +24,7 @@ internal class GetFrequenciesQueryHandler : IQueryHandler<GetFrequenciesQuery, P
 
         query = _sorter.ApplySort(query, message.SortColumn, message.SortDescending);
 
-        return await _paginator.PaginateAsync<Frequency, FrequencyListItemDto>(
+        return await _paginator.PaginateAsync<PaymentFrequency, FrequencyListItemDto>(
             query,
             message.Page,
             message.PageSize,

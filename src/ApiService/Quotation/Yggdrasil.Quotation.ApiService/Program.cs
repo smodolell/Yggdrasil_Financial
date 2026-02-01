@@ -8,7 +8,7 @@ using Yggdrasil.Quotation.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 var configuration = builder.Configuration;
-
+builder.AddRabbitMQClient("messaging");
 #if (UseAspire)
 builder.AddServiceDefaults();
 #endif
@@ -56,6 +56,7 @@ app.Map("/", () => Results.Redirect("/scalar"));
 
 #if (UseAspire)
 app.MapDefaultEndpoints();
+
 #endif
 
 app.MapEndpoints();

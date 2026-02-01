@@ -1,7 +1,5 @@
-﻿using Yggdrasil.Catalog.Domain.Entities;
+﻿namespace Yggdrasil.Catalog.Application.Interfaces;
 
-namespace Yggdrasil.Catalog.Application.Interfaces;
-
-public interface IFrequencyRepository : IRepository<Frequency, int>
+public interface IFrequencyRepository : IRepository<PaymentFrequency, int>
 {
 }
